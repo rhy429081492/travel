@@ -1,0 +1,12 @@
+*{padding: 0px;margin: 0px;}
+.flash1{width:1200px;height: 535px;margin: 0px auto;position: relative;}
+.flash1 .play{width:1200px;height: 535px;list-style: none;position:absolute;top:0px;left:0px;}
+.flash1 .play li{display: none;position:absolute;top:0px;left:0px;}
+.flash1 .play li img{float: left;}
+.button1{position: absolute;bottom:20px;left:470px;list-style: none;}
+.button1 li{margin-left: 10px;float: left;}
+.button1 li div{width:12px;height: 12px;background:#DDDDDD;border-radius: 6px;cursor: pointer;}
+.prev1{width:40px;height:63px;background:url(/images/beijing.png) 0px 0px;position: absolute;top:205px;left:10px;z-index: 1000;}
+.next1{width:40px;height:63px;background:url(/images/beijing.png) -40px 0px;position: absolute;top:205px;right:10px;z-index: 1000;}
+.prev1:hover{background:url(/images/beijing.png) 0px -62px;}
+.next1:hover{background:url(/images/beijing.png) -40px -62px;}

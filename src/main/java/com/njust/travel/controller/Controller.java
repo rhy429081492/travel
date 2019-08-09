@@ -33,7 +33,7 @@ public class Controller {
         boolean flag = adminService.login(username, password);
         ModelAndView mav = new ModelAndView();
         if (flag){
-            mav.setViewName("index");
+            mav.setViewName("main");
             mav.addObject("user", username);
         }else {
             mav.setViewName("error");
@@ -97,9 +97,16 @@ public class Controller {
     }//管理员删除非法业务
 
     @RequestMapping(value = "/vip/login", method = RequestMethod.POST)
-    public boolean vipLogin(@RequestParam("username")String username,
+    public ModelAndView vipLogin(@RequestParam("username")String username,
                             @RequestParam("password")String password){
-        return vipService.login(username, password);
+        boolean flag = vipService.login(username, password);
+        if (flag){
+            ModelAndView mav = new ModelAndView("main");
+            mav.addObject("user",username);
+            return mav;
+        } else {
+            return new ModelAndView("error");
+        }
     }//会员登录
 
     @RequestMapping(value = "/vip/register", method = RequestMethod.POST)
@@ -124,9 +131,16 @@ public class Controller {
     }//会员注册
 
     @RequestMapping(value = "/agency/login", method = RequestMethod.POST)
-    public boolean agencyLogin(@RequestParam("username")String username,
+    public ModelAndView agencyLogin(@RequestParam("username")String username,
                                @RequestParam("password")String password){
-        return  agencyService.login(username, password);
+        boolean flag = agencyService.login(username, password);
+        if (flag){
+            ModelAndView mav = new ModelAndView("main");
+            mav.addObject("user",username);
+            return mav;
+        } else {
+            return new ModelAndView("error");
+        }
     }
 
     @RequestMapping(value = "/getBusiness", method = RequestMethod.POST)
