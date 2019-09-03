@@ -12,6 +12,7 @@ import com.njust.travel.service.AdminService;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -84,6 +85,10 @@ public class AdminServiceImpl implements AdminService {
 
     @Override
     public void deleteAgency(Integer id) {
+        String shortPath = agencyDao.getOne(id).getLicencesite();
+        String finalPath = "C:\\Users\\42908\\IdeaProjects\\travel\\src\\main\\webapp\\licence\\"+shortPath;
+        File file = new File(finalPath);
+        file.delete();
         agencyDao.deleteById(id);
     }
 

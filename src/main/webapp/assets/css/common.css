@@ -1,186 +1,189 @@
-header{
-	width: 100%;
-	height: 50px;
-	background: #1e1b29;
-	border-bottom: solid 4px red;
+/* 配色方案:
+    背景: rgb(224, 207, 254), rgb(255, 239, 255)
+    按钮: rgb(181, 154, 254),rgb(245, 189, 253)
+*/
+/*登录界面整体风格*/
+html {
+	overflow-y:scroll;
+	vertical-align:baseline;
 }
-.member_wrap{
-	
+body {
+	font-family:Microsoft YaHei, Segoe UI, Tahoma, Arial, Verdana, sans-serif, "新宋体";
+	font-size:12px;
+	color:#000000;
+	height:100%;
+	line-height:1;
+	background: url("../img/logo_bg.jpg");
 }
-.header_item{
-	overflow: hidden;
+* {
+	margin:0 auto;
+	padding:0px;
 }
-.user_menu{
-	width: 100%;
-	height: 170px;
-	padding: 20px 0;
-	background:url(../img/banner_bg.html) repeat;
+ul, li {
+	list-style:none
 }
-.header_item{
-	
-	width: 980px;
-	margin: 0 auto;
+/*tab登录选项卡*/
+#tab {
+	width:410px;
+	position:relative;
+	margin:80px auto 0px auto;
+	text-align:center;
+	padding:1px;
 }
-.menu_head{
-	width: 100px;
-	height: 100px;
-	border-radius: 100px;
-	border: solid 3px #fff;
-	overflow: hidden;
+#tab .tab_menu {
+	width:100%;
+	float:left;
+	position:absolute;
+	z-index:1;
 }
-.menu_head img{
-	width: 100%;
-	height: 100%;
+#tab .tab_menu li {
+	float:left;
+	width:49.6%;
+	height:50px;
+	line-height:50px;
+	border-bottom:0px;
+	cursor:pointer;
+	text-align:center;
+	margin:0 1px 0 0;
+	background-color:#000000;
+	color:#FFFFFF;
+	font-size:16px;
+	filter:alpha(opacity:80);
+	opacity:0.8;
 }
-.menu_info{
-	width:840px;
-	margin-left: 20px;	
+#tab .tab_box {
+	width:410px;
+	clear:both;
+	top:50px;
+	position:relative;
+	background-color:#FFFFFF;
+	color:#000000;
+	font-size:16px;
+	filter:alpha(opacity:80);
+	opacity:0.8;
 }
-.info_name{
-	font-size: 18px;
-	line-height: 40px;
-	font-weight: bold;
-	color: #fff;
+#tab .tab_box input{font-size:12px;}
+#tab .tab_menu .selected {
+	cursor:pointer;
+	background-color:#FFFFFF;
+	color:#000000;
+	font-size:16px;
+	filter:alpha(opacity:80);
+	opacity:0.8;
 }
-.info_name_box{
-	margin-top: 10px;
+.hide {
+	display:none;
 }
-.level{
-	font-size: 14px;
-	color: #f60;
-	font-weight: bold;
+.tab_box div {
+	padding:10px;
 }
-.info_desc{
-	margin-top: 10px;
-	font-size: 14px;
-	color: #FFF;
+input[type=text], input[type=password] {
+	width:200px;
+	height:40px;
+	margin-top:10px;
+	padding:0px 15px;
+	border:1px solid rgba(0, 0, 0, .15);
+	border-radius:6px;
+	color:#000000;
+	letter-spacing:2px;
+	font-size:16px;
+	background:transparent;
 }
-.banner_menu{
-	width: 980px;
-	height: 50px;
-	margin: 20px auto;
-	background: #fff;
+#code input {
+	width:95px;
 }
-
-
-.nav_box{
-	margin-top: 50px;
+#code img {
+	width:100px;
+	height:40px;
+	border:none;
 }
-.nav_box ul {
-	overflow: hidden;
+button {
+	cursor:pointer;
+	width:100%;
+	height:45px;
+	padding:0;
+	background:#ef4300;
+	border:1px solid #ff730e;
+	border-radius:6px;
+	font-weight:700;
+	color:#fff;
+	font-size:24px;
+	letter-spacing:15px;
+	text-shadow:0 1px 2px rgba(0, 0, 0, .1)
 }
-.nav_box ul li{
-	display: block;
-	padding: 0 20px;
+input:focus {
+	outline:none;
+	box-shadow:0 2px 3px 0 rgba(0, 0, 0, .1) inset, 0 2px 7px 0 rgba(0, 0, 0, .2)
 }
-.nav_box ul li a{
-	color: #fff;
-	font-size: 16px;
+button:hover {
+	box-shadow:0 15px 30px 0 rgba(240, 70, 0, .15) inset, 0 2px 7px 0 rgba(0, 0, 0, .2)
 }
-.nav_box ul li a:hover{
-	color: red;
+/*背景图片*/
+.screenbg {
+	position:fixed;
+	bottom:0;
+	left:0;
+	z-index:-999;
+	overflow:hidden;
+	width:100%;
+	height:100%;
+	min-height:100%;
 }
-
-
-
-
-
-.login_wrap{
-	background: url(../img/logo_bg.jpg) no-repeat center;
-	background-size: 100%;
+.screenbg ul li {
+	display:block;
+	list-style:none;
+	position:fixed;
+	overflow:hidden;
+	top:0;
+	left:0;
+	width:100%;
+	height:100%;
+	z-index:-1000;
+	float:right;
 }
-.logo{
-	width: 500px;
-	height: 150px;
-	margin: 0px auto;
-	background: url(../img/logowz.png) no-repeat center;
+.screenbg ul a {
+	left:0;
+	top:0;
+	width:100%;
+	height:100%;
+	display:inline-block;
+	margin:0;
+	padding:0;
+	cursor:default;
 }
-.login_box{
-	width: 360px;
-	background: #FFFFFF;
-	margin: 0px auto;
+.screenbg a img {
+	vertical-align:middle;
+	display:inline;
+	border:none;
+	display:block;
+	list-style:none;
+	position:fixed;
+	overflow:hidden;
+	top:0;
+	left:0;
+	width:100%;
+	height:100%;
+	z-index:-1000;
+	float:right;
 }
-.login_title{
-	font-size: 25px;
-	text-align: center;
-	color: #4aaf51;
-	padding: 15px 0;
-	width: 300px;
-	margin: 0 auto;
-	border-bottom: solid 1px #CCCCCC;
+/*底部bottom*/
+.bottom {
+	margin:8px auto 0 auto;
+	width:100%;
+	position:fixed;
+	text-align:center;
+	bottom:0;
+	left:0;
+	overflow:hidden;
+	padding-bottom:8px;
+	color:#ccc;
+	word-spacing:3px;
+	zoom:1;
 }
-.form_text_ipt{
-	width: 300px;
-	height: 40px;
-	border: solid 1px #CCCCCC;
-	margin: 20px auto 0 auto;
-	background: #FFFFFF;
+.bottom a {
+	color:#FFF;
+	text-decoration:none;
 }
-.form_check_ipt{
-	width: 300px;
-	margin:  10px auto;
-	overflow: hidden;
+.bottom a:hover {
+	text-decoration:underline;
 }
-.form_text_ipt input{
-	width: 290px;
-	height: 30px;
-	margin: 5px;
-	border: none;
-	font-family: "微软雅黑";
-	font-size: 15px;
-	color: #666;
-}
-.check_left label{
-	cursor: pointer;
-}
-.check_left label input{
-	position: relative;
-	top: 2px;
-}
-.form_btn{
-	width: 300px;
-	height: 40px;
-	margin:  10px auto;
-}
-.form_btn button{
-	width: 100%;
-	height: 100%;
-	border: none;
-	color: #FFFFFF;
-	font-size: 14px;
-	background: #4aaf51;
-	cursor: pointer;
-}
-.form_reg_btn{
-	width: 300px;
-	margin: 0 auto;
-	font-size: 14px;
-	color: #666;
-}
-.form_forget_btn{
-	width: 100px;
-	margin: 0 auto;
-	font-size: 14px;
-	color: #666;
-}
-.other_login{
-	overflow: hidden;
-	width: 300px;
-	height: 80px;
-	line-height: 80px;
-	margin: 0px auto;
-}
-.other_left{
-	font-size: 14px;
-	color: #999;
-}
-
-.other_right a{
-	margin:5px;
-	color:#636363;
-}
-
-.other_right a:hover{
-	color:#AEEEEE;
-}
-

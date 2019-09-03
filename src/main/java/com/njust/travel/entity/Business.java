@@ -1,6 +1,7 @@
 package com.njust.travel.entity;
 
 import javax.persistence.*;
+import java.sql.Date;
 
 @Entity
 @Table(name = "business")
@@ -8,27 +9,29 @@ public class Business {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
-    @Column(name = "name",length = 30)
+    @Column(name = "name",length = 100)
     private String name;
-    @Column(name = "scenicname",length = 30)
+    @Column(name = "scenicname",length = 100)
     private String scenicname;
     @Column(name = "agencyid")
     private Integer agencyid;
+    @Column(name = "begindate")
+    private Date begindate;
+    @Column(name = "enddate")
+    private Date enddate;
     @Column(name = "price",length = 20)
     private String price;
     @Column(name = "scale",length = 10)
     private String scale;
     @Column(name = "nop")
     private Integer nop;
-    @Column(name = "place",length = 200)
-    private String place;
-    @Column(name = "way",length = 100)
-    private String way;
+    @Column(name = "beginplace",length = 15)
+    private String beginplace;
     @Column(name = "vehicle",length = 20)
     private String vehicle;
     @Column(name = "renop")
     private Integer renop;
-    @Column(name = "introduce",length = 500)
+    @Column(name = "introduce",length = 4096)
     private String introduce;
     @Column(name = "p1",length = 50)
     private String p1;
@@ -73,6 +76,22 @@ public class Business {
         this.agencyid = agencyid;
     }
 
+    public Date getBegindate() {
+        return begindate;
+    }
+
+    public void setBegindate(Date begindate) {
+        this.begindate = begindate;
+    }
+
+    public Date getEnddate() {
+        return enddate;
+    }
+
+    public void setEnddate(Date enddate) {
+        this.enddate = enddate;
+    }
+
     public String getPrice() {
         return price;
     }
@@ -97,20 +116,12 @@ public class Business {
         this.nop = nop;
     }
 
-    public String getPlace() {
-        return place;
+    public String getBeginplace() {
+        return beginplace;
     }
 
-    public void setPlace(String place) {
-        this.place = place;
-    }
-
-    public String getWay() {
-        return way;
-    }
-
-    public void setWay(String way) {
-        this.way = way;
+    public void setBeginplace(String beginplace) {
+        this.beginplace = beginplace;
     }
 
     public String getVehicle() {
@@ -184,11 +195,12 @@ public class Business {
                 ", name='" + name + '\'' +
                 ", scenicname='" + scenicname + '\'' +
                 ", agencyid=" + agencyid +
+                ", begindate=" + begindate +
+                ", enddate=" + enddate +
                 ", price='" + price + '\'' +
                 ", scale='" + scale + '\'' +
                 ", nop=" + nop +
-                ", place='" + place + '\'' +
-                ", way='" + way + '\'' +
+                ", beginplace='" + beginplace + '\'' +
                 ", vehicle='" + vehicle + '\'' +
                 ", renop=" + renop +
                 ", introduce='" + introduce + '\'' +

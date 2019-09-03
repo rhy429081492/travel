@@ -16,6 +16,39 @@ a, a:hover, a:focus {
     color: #30a5ff;
 }
 
+.a-upload {
+    padding: 4px 10px;
+    height: 20px;
+    line-height: 20px;
+    position: relative;
+    cursor: pointer;
+    color: #888;
+    background: #fafafa;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    overflow: hidden;
+    display: inline-block;
+    *display: inline;
+    *zoom: 1
+}
+
+.a-upload  input {
+    position: absolute;
+    font-size: 100px;
+    right: 0;
+    top: 0;
+    opacity: 0;
+    filter: alpha(opacity=0);
+    cursor: pointer
+}
+
+.a-upload:hover {
+    color: #444;
+    background: #eee;
+    border-color: #ccc;
+    text-decoration: none
+}
+
 h1, h2, h3, h4, h5, h6 {
     color: #5f6468;
 }

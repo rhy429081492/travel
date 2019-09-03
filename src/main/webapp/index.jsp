@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<% String path = request.getContextPath();%>
 <html>
 <head>
 
@@ -16,10 +17,10 @@
 
   <!-- CSS -->
   <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,100,300,500">
-  <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-  <link rel="stylesheet" href="assets/css/font-awesome.min.css">
-  <link rel="stylesheet" href="assets/css/form-elements.css">
-  <link rel="stylesheet" href="assets/css/styleforindex.css">
+  <link rel="stylesheet" href="<%=path%>/assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="<%=path%>/assets/css/font-awesome.min.css">
+  <link rel="stylesheet" href="<%=path%>/assets/css/form-elements.css">
+  <link rel="stylesheet" href="<%=path%>/assets/css/styleforindex.css">
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -30,10 +31,10 @@
 
   <!-- Favicon and touch icons -->
   <link rel="shortcut icon" href="assets/ico/favicon.png">
-  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/apple-touch-icon-144-precomposed.png">
-  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/apple-touch-icon-114-precomposed.png">
-  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/apple-touch-icon-72-precomposed.png">
-  <link rel="apple-touch-icon-precomposed" href="assets/ico/apple-touch-icon-57-precomposed.png">
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="<%=path%>/assets/ico/apple-touch-icon-144-precomposed.png">
+  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="<%=path%>/assets/ico/apple-touch-icon-114-precomposed.png">
+  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="<%=path%>/assets/ico/apple-touch-icon-72-precomposed.png">
+  <link rel="apple-touch-icon-precomposed" href="<%=path%>/assets/ico/apple-touch-icon-57-precomposed.png">
 
   <script>
     function x() {
@@ -49,7 +50,6 @@
       form1.submit();
     }
   </script>
-
 </head>
 
 <body>
@@ -109,7 +109,7 @@
             </div>
             <div class="form_reg_btn">
               <span>不想注册？</span>
-              <a href="main.jsp" style="margin-right:265px;">游客入口</a>
+              <a href="/travel/visit" style="margin-right:265px;">游客入口</a>
             </div>
             <div class="form_forget_btn">
 
@@ -123,13 +123,13 @@
 
 
 <!-- Javascript -->
-<script src="assets/js/jquery-1.11.1.min.js"></script>
-<script src="assets/js/bootstrap.min.js"></script>
-<script src="assets/js/jquery.backstretch.min.js"></script>
-<script src="assets/js/scripts.js"></script>
+<script src="<%=path%>/assets/js/jquery-1.11.1.min.js"></script>
+<script src="<%=path%>/assets/js/bootstrap.min.js"></script>
+<script src="<%=path%>/assets/js/jquery.backstretch.min.js"></script>
+<script src="<%=path%>/assets/js/scripts.js"></script>
 
 <!--[if lt IE 10]>
-<script src="assets/js/placeholder.js"></script>
+<script src="<%=path%>/assets/js/placeholder.js"></script>
 <![endif]-->
 
 </body>

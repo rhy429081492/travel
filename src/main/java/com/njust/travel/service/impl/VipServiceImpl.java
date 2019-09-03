@@ -57,7 +57,7 @@ public class VipServiceImpl implements VipService {
         }
         for (Order order:orderDao.findAll()
              ) {
-            if (vipId.equals(order.getId())){
+            if (vipId.equals(order.getVipid())){
                 orders.add(order);
             }
         }
