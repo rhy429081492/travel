@@ -146,7 +146,7 @@
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">
                         <i class="fa fa-bars"></i>
                     </button>
-                    <a class="navbar-brand" href="index.html">旅游<span>资源</span></a>
+                    <a class="navbar-brand" href="#">旅游<span>资源</span></a>
 
                 </div><!--/.navbar-header-->
                 <!-- End Header Navigation -->
@@ -357,7 +357,7 @@
             <div class="row">
                 <div class="col-sm-3">
                     <div class="navbar-header">
-                        <a class="navbar-brand" href="index.html">旅游<span>资源</span></a>
+                        <a class="navbar-brand" href="#">旅游<span>资源</span></a>
                     </div><!--/.navbar-header-->
                 </div>
                 <div class="col-sm-9">

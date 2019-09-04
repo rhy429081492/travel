@@ -21,7 +21,6 @@ import java.io.File;
 import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 import java.util.Random;
 
 @RestController
@@ -150,7 +149,7 @@ public class Controller {
             ModelAndView mav = new ModelAndView("main");
             httpSession.setAttribute("user", username);
             httpSession.setAttribute("type","vip");
-            mav.addObject("businesslist",list1);
+            httpSession.setAttribute("businesslist",list1);
             return mav;
         } else {
             return new ModelAndView("loginerror");
@@ -204,6 +203,13 @@ public class Controller {
             order.setDate(sqldate);
             order.setStatus(false);
             vipService.saveOrder(order);
+            for (Business business:ordinaryService.getBusiness()
+                 ) {
+                if (business.getId() == id){
+                    business.setRenop(business.getRenop()-1);
+                    agencyService.saveBusiness(business);
+                }
+            }
             mav.setViewName("ordersuccess");
         } catch (Exception e){
             mav.setViewName("orderfail");
@@ -216,6 +222,29 @@ public class Controller {
         String username = (String) httpSession.getAttribute("user");
         List<Order> list = vipService.getOrder(username);
         mav.addObject("orderlist",list);
+        return mav;
+    }
+    @RequestMapping(value = "/vip/updateorder", method = RequestMethod.POST)
+    public ModelAndView vipUpdateOrder(@RequestParam("orderid")Integer orderid,
+                                       @RequestParam("level")Integer level,
+                                       @RequestParam("discuss")String discuss){
+        ModelAndView mav = new ModelAndView();
+        try {
+            Order needorder = new Order();
+            for (Order order : ordinaryService.getOrder()
+            ) {
+                if (orderid == order.getId()) {
+                    needorder = order;
+                }
+            }
+            needorder.setLevel(level);
+            needorder.setDiscuss(discuss);
+            vipService.saveOrder(needorder);
+            mav.setViewName("updateordersuccess");
+        }catch (Exception e){
+            e.printStackTrace();
+            mav.setViewName("updateorderfail");
+        }
         return mav;
     }
     @RequestMapping(value = "/agency/login", method = RequestMethod.POST)
@@ -346,15 +375,27 @@ public class Controller {
         return mav;
     }
     @RequestMapping(value = "/agency/findonebusiness", method = RequestMethod.POST)
-    public ModelAndView agencyFindoneBusiness(@RequestParam("businessid")Integer id){
+    public ModelAndView agencyFindoneBusiness(@RequestParam("businessid")Integer id,
+                                              HttpSession httpSession){
         ModelAndView mav = new ModelAndView("agencybusinessinfo");
+        String username = (String) httpSession.getAttribute("user");
+        for (Agency agency:ordinaryService.getAgency()
+             ) {
+            if (username.equals(agency.getUsername())){
+                mav.addObject("agency",agency);
+                break;
+            }
+        }
         List<Business> list = ordinaryService.getBusiness();
         List<Order> list1 = ordinaryService.getOrder();
         List<Order> list2 = new ArrayList<Order>();
+        List<Integer> list3 = new ArrayList<Integer>();
+        List<Vip> list4 = new ArrayList<Vip>();
         for (Order order:list1
         ) {
             if (order.getBusinessid() == id){
                 list2.add(order);
+                list3.add(order.getVipid());
             }
         }
         mav.addObject("orders",list2);
@@ -365,6 +406,13 @@ public class Controller {
                 break;
             }
         }
+        for (Vip vip:ordinaryService.getVip()
+             ) {
+            if (list3.contains(vip.getId())){
+                list4.add(vip);
+            }
+        }
+        mav.addObject("vips",list4);
         return mav;
     }
     @RequestMapping(value = "/getBusiness", method = RequestMethod.POST)
@@ -480,8 +528,10 @@ public class Controller {
         }
     }
     @RequestMapping(value = "/findonebusiness", method = RequestMethod.POST)
-    public ModelAndView ordinaryFindoneBusiness(@RequestParam("businessid")Integer id){
+    public ModelAndView ordinaryFindoneBusiness(@RequestParam("businessid")Integer id,
+                                                HttpSession httpSession){
         ModelAndView mav = new ModelAndView("businessinfo");
+        Integer agencyid = -1;
         List<Business> list = ordinaryService.getBusiness();
         List<Order> list1 = ordinaryService.getOrder();
         List<Order> list2 = new ArrayList<Order>();
@@ -495,10 +545,31 @@ public class Controller {
         for (Business business:list
              ) {
             if (id == business.getId()){
+                agencyid = business.getAgencyid();
                 mav.addObject("businessinfo",business);
                 break;
             }
         }
+        for (Agency agency:ordinaryService.getAgency()
+             ) {
+            if (agency.getId() == agencyid){
+                mav.addObject("agency",agency);
+            }
+        }
+        return mav;
+    }
+    @RequestMapping(value = "/findoneorder", method = RequestMethod.POST)
+    public ModelAndView findoneOrder(@RequestParam("orderid")Integer id){
+        ModelAndView mav = new ModelAndView("showorder");
+        Order needorder = new Order();
+        for (Order order:ordinaryService.getOrder()
+             ) {
+            if (order.getId() == id){
+                needorder = order;
+                break;
+            }
+        }
+        mav.addObject("order",needorder);
         return mav;
     }
     @RequestMapping(value = "/visit", method = RequestMethod.GET)
@@ -520,7 +591,7 @@ public class Controller {
         list1.add(list.get(e));
         list1.add(list.get(f));
         ModelAndView mav = new ModelAndView("main");
-        mav.addObject("businesslist",list1);
+        httpSession.setAttribute("businesslist",list1);
         httpSession.setAttribute("type","visitor");
         return mav;
     }

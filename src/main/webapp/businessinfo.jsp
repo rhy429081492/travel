@@ -93,6 +93,7 @@
                     <ul class="nav navbar-nav navbar-right" data-in="fadeInDown" data-out="fadeOutUp">
                         <li><a href="main.jsp">回到首页</a></li>
                         <li class="scroll"><a href="#introduct">景点信息</a></li>
+                        <li class="scroll"><a href="#businessinfo">业务信息</a></li>
                         <li class="scroll"><a href="#comment">用户评论</a></li>
                         <li class="scroll"><a href="#order">用户预约</a></li>
                     </ul><!--/.nav -->
@@ -141,9 +142,29 @@
         </div>
     </div>
 </section>
+<section id="businessinfo">
+    <div class="container" id="Box2">
+        <h1 class="h1"><a class="h1-left"></a>业务信息</h1>
+        <div class="attraction-text">
+            <h3>业务名:${businessinfo.name}</h3>
+            <h3>景点名:${businessinfo.scenicname}</h3>
+            <h3>旅行社名:${agency.agencyname}</h3>
+            <h3>出发时间:${businessinfo.begindate}</h3>
+            <h3>结束时间:${businessinfo.enddate}</h3>
+            <h3>价格:${businessinfo.price}</h3>
+            <h3>规模:${businessinfo.scale}</h3>
+            <h3>总人数:${businessinfo.nop}</h3>
+            <h3>出发地:${businessinfo.beginplace}</h3>
+            <h3>交通工具:${businessinfo.vehicle}</h3>
+            <h3>剩余名额:${businessinfo.renop}</h3>
+            <h3>联系电话:${agency.tel}</h3>
+            <h3>联系邮箱:${agency.email}</h3>
+        </div>
+    </div>
+</section>
 <section id="comment">
 
-    <div class="container" id="Box4">
+    <div class="container" id="Box3">
         <h1 class="h1"><a class="h1-left"></a>用户评论</h1>
 
         <c:if test="${not empty orders}">
@@ -163,7 +184,7 @@
     </div>
 </section>
 <section id="order">
-    <div class="container" id="Box3">
+    <div class="container" id="Box4">
         <h1 class="h1"><a class="h1-left"></a>旅行预约</h1>
         <div>
             <button class="welcome-hero-btn" onclick="sub()">预约</button>

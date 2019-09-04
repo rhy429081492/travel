@@ -96,12 +96,12 @@
             </a>
             <ul class="children collapse" id="sub-item-3">
                 <li>
-                    <a class="" href="/travel/admin/getVip">
+                    <a class="" href="#" onclick="showAtRight('/travel/admin/getVip')">
                         <span class="glyphicon glyphicon-share-alt"></span> 会员认证
                     </a>
                 </li>
                 <li>
-                    <a class="" href="/travel/admin/getAgency">
+                    <a class="" href="#" onclick="showAtRight('/travel/admin/getAgency')">
                         <span class="glyphicon glyphicon-share-alt"></span> 旅行社认证
                     </a>
                 </li>
@@ -113,7 +113,8 @@
 
 <div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
 
-
+    <div class="row" id="content">
+    </div>
 
     <!--
         <div class="row" id="content">

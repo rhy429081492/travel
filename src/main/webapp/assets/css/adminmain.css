@@ -7,7 +7,9 @@ body {
     padding-top: 50px;
     color: #5f6468;
 }
-
+.panel{
+    margin-bottom: 1px;
+}
 p {
     color: #777;
 }
@@ -18,7 +20,7 @@ a, a:hover, a:focus {
 
 .a-upload {
     padding: 4px 10px;
-    height: 20px;
+    height: 40px;
     line-height: 20px;
     position: relative;
     cursor: pointer;
@@ -107,6 +109,9 @@ h3, h4 {
 .form-control {
     border: 1px solid #eee;
     box-shadow: none;
+}
+.form-group2{
+    height: 40px;
 }
 
 .form-control:focus {

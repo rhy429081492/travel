@@ -48,14 +48,6 @@
                         <h2><a href="/travel/agencyupdatebusiness.jsp">业务上传</a></h2>
                     </div>
                 </li>
-                <li>
-                    <div class="single-list-topics-content">
-                        <div class="single-list-topics-icon">
-                            <i class="flaticon-restaurant"></i>
-                        </div>
-                        <h2><a href="#">订单查看</a></h2>
-                    </div>
-                </li>
 
 
             </ul>

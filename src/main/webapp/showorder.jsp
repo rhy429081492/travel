@@ -53,7 +53,7 @@
                 <div class="collapse navbar-collapse menu-ui-design" id="navbar-menu">
                     <ul class="nav navbar-nav navbar-right" data-in="fadeInDown" data-out="fadeOutUp">
                         <li><a href="/travel/main.jsp">返回首页</a></li>
-                        <li><a href="#">历史订单</a></li>
+                        <li><a href="#">订单详情</a></li>
 
                     </ul><!--/.nav -->
                 </div><!-- /.navbar-collapse -->
@@ -67,32 +67,33 @@
 <div class="totop">
 
     <div class="col-md-8 col-md-offset-2 colorchange css1">
-        <h1><a class="h1-left"></a>订单记录</h1>
-        <form id="form" name="form" action="/travel/findoneorder" method="post" hidden="hidden">
-            <input type="text" id="orderid" name="orderid" value="">
+        <h1><a class="h1-left"></a>订单详情</h1>
+        <form role="form" method="post" action="/travel/vip/updateorder">
+            <div class="form-group">
+                <label>订单号</label>
+                <input id="orderid" name="orderid" class="form-control" type="text" readonly="readonly" value="${order.id}">
+            </div>
+            <div class="form-group">
+                <label>订单日期</label>
+                <input id="orderdate" name="orderdate" class="form-control" type="text" readonly="readonly" value="${order.date}">
+            </div>
+            <div class="form-group">
+                <label>评论等级</label>
+                <select class="form-control" id="level" name="level">
+                    <option value="4">优</option>
+                    <option value="3">良</option>
+                    <option value="2">中</option>
+                    <option value="1">差</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>评论内容</label>
+                <textarea class="form-control" rows="5" name="discuss" id="discuss">${order.discuss}</textarea>
+            </div>
+            <div class="form-group">
+                <input class="form-control" type="submit" value="提交">
+            </div>
         </form>
-        <table class="bTable table table-striped table-bordered table-hover table-condensed">
-            <thead>
-            <tr>
-                <th>订单号</th>
-                <th>订单日期</th>
-                <th>订单详情</th>
-            </tr>
-            </thead>
-            <tbody>
-            <c:if test="${not empty orderlist}">
-            <c:forEach var="d" items="${orderlist}">
-                <tr>
-                    <td>${d.id}</td>
-                    <td>${d.date}</td>
-                    <td>
-                        <input type="button" onclick="getorder(${d.id})" value="查看详情">
-                    </td>
-                </tr>
-            </c:forEach>
-            </c:if>
-            </tbody>
-        </table>
     </div>
 </div>
 
